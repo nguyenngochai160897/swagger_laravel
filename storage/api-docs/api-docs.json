@@ -1,0 +1,90 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "L5 Swagger API",
+        "description": "L5 Swagger API description",
+        "contact": {
+            "email": "darius@matulionis.lt"
+        },
+        "version": "1.0.0"
+    },
+    "host": "api.local",
+    "basePath": "/v1",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/api/user": {
+            "get": {
+                "description": "Return a user's first and last name",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Staff"
+                        }
+                    },
+                    "422": {
+                        "description": "104 : Invalid Token"
+                    }
+                }
+            }
+        },
+        "/api/project": {
+            "get": {
+                "description": "Return a user's first and last name",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Project"
+                        }
+                    },
+                    "422": {
+                        "description": "104 : Invalid Token"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Staff": {
+            "properties": {
+                "id": {
+                    "description": "ID staff",
+                    "type": "integer"
+                },
+                "email": {
+                    "description": "Email staff",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "Password staff",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Project": {
+            "properties": {
+                "name": {
+                    "description": "name project",
+                    "type": "string"
+                },
+                "user": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Staff"
+                    }
+                }
+            },
+            "type": "object"
+        }
+    }
+}
