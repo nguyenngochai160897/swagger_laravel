@@ -43,6 +43,9 @@ class UserController extends Controller
  *          @SWG\Definition(
  *              definition="Project",
  *              type="object",
+   *             @SWG\Property(property="1", type="object",
+     *                      ref="#/definitions/Staff"
+     *                  ),
  *              @SWG\Property(
  *                  description="name project",
  *                  property="name",
